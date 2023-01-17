@@ -157,7 +157,7 @@ void processAndWriteEnc()
         i++;
         
         /* Encrypt and write file contents */
-        threshold = (keylen + strlen(extension) + 1 + fileSize) / 5000;
+        threshold = (keylen + strlen(extension) + fileSize + 5000) / 5000;
         prev_i = i;
         while(fread(&readByte , 1 , 1 , inFilePtr))
         {
@@ -241,7 +241,7 @@ void processAndWriteDec()
         outFilePtr = fopen(outPath , "wb");
         
         /* Decrypt file contents and write to output file */
-        threshold = (keylen + strlen(extension) + 1 + fileSize) / 5000;
+        threshold = (keylen + strlen(extension) + fileSize + 5000) / 5000;
         prev_i = i;
         while(fread(&readByte , 1 , 1 , inFilePtr))
         {
